@@ -1,11 +1,13 @@
 package fr.semifir.testDemo.employes;
 
 import fr.semifir.testDemo.employes.dtos.EmployeDTO;
+import nonapi.io.github.classgraph.json.JSONUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.bind.SchemaOutputResolver;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Objects;
@@ -25,6 +27,7 @@ public class EmployeController {
 
     @GetMapping("{id}")
     public ResponseEntity<EmployeDTO> findById(@PathVariable Long id) {
+        System.out.println("saluuuuuuuut jérém");
         try {
             Optional<EmployeDTO> employeDTO = this.service.findById(id);
             return ResponseEntity.ok(employeDTO.get());
